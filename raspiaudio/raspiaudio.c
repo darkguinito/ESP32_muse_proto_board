@@ -68,6 +68,7 @@ void ws2812_write_leds(struct led_state new_state);
 static const char TAG[] = "es8388";	
 
 static i2c_config_t i2c_cfg;
+static int u8_volume = 0;
 static int i2c_port;
 
 #define ES8388_ADDR 0x20
@@ -105,13 +106,14 @@ esp_err_t raspiaudio_config_iface(audio_hal_codec_mode_t mode,
 }
 
 esp_err_t raspiaudio_set_volume(int vol) {
-  printf("VOLUME=============>Vgauche %u  Vdroit %u\n",vol,vol);
+  printf("Raw VOLUME=============>%u\n",vol);
   uint8_t value1 = 0;
   uint8_t value2 = 0;
   float   tmp    = 0;
   ES8388_Write_Reg(25, 0x00);
 
   tmp = ((float)vol / 100.0) * 64;
+  printf("Percentage VOLUME=============>%f\n",tmp);
   if (tmp > M) {
     value1 = (uint8_t)tmp - M;
   }
@@ -122,18 +124,18 @@ esp_err_t raspiaudio_set_volume(int vol) {
   if (vol == 0) {
     ES8388_Write_Reg(25, 0x04);
   }
-
+  printf("Raw VOLUME=============>value1 %u  value2 %u\n",value1,value2);
   ES8388_Write_Reg(26, value2);
   ES8388_Write_Reg(27, value2);
   ES8388_Write_Reg(46, value1);
   ES8388_Write_Reg(47, value1);
-
+  u8_volume = vol;
   return ESP_OK;
 }
 
 esp_err_t raspiaudio_get_volume(int *vol) {
   esp_err_t ret = ESP_OK;
- 
+  vol = &u8_volume;
   return ret;
 }
 
@@ -272,6 +274,7 @@ esp_err_t raspiaudio_init(audio_hal_codec_config_t *codec_cfg) {
 	}	
   setup();
   printf("-------------------->>>> init ES8388\n");
+  raspiaudio_set_volume(50);
 	return (ret == ESP_OK);
 }
 
