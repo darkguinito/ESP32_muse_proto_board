@@ -37,6 +37,11 @@
 #define SDCARD_OPEN_FILE_NUM_MAX  5
 #define SDCARD_INTR_GPIO          GPIO_NUM_34
 
+#define BOARD_PA_GAIN             (10) /* Power amplifier gain defined by board (dB) */
+#define ESP_SD_PIN_CLK              -1
+#define ESP_SD_PIN_CMD              -1
+#define ESP_SD_PIN_D0               -1
+#define ESP_SD_PIN_D3               -1
 
 extern audio_hal_func_t AUDIO_CODEC_RASPIAUDIO_DEFAULT_HANDLE;
 

@@ -7,6 +7,6 @@ ifdef CONFIG_AUDIO_BOARD_CUSTOM
 COMPONENT_ADD_INCLUDEDIRS += ./raspiaudio
 COMPONENT_SRCDIRS += ./raspiaudio
 
-COMPONENT_ADD_INCLUDEDIRS += ./my_board_v1_0
-COMPONENT_SRCDIRS += ./my_board_v1_0
+COMPONENT_ADD_INCLUDEDIRS += ./raspiaudio_v1_0
+COMPONENT_SRCDIRS += ./raspiaudio_v1_0
 endif
