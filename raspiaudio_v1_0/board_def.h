@@ -1,29 +1,5 @@
-/*
- * ESPRESSIF MIT License
- *
- * Copyright (c) 2020 <ESPRESSIF SYSTEMS (SHANGHAI) CO., LTD>
- *
- * Permission is hereby granted for use on all ESPRESSIF SYSTEMS products, in which case,
- * it is free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the Software is furnished
- * to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or
- * substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- */
-
-#ifndef _AUDIO_BOARD_DEFINITION_H_
-#define _AUDIO_BOARD_DEFINITION_H_
+#ifndef _RASPIAUDIO_PROTO_BOARD_DEFINITION_H_
+#define _RASPIAUDIO_PROTO_BOARD_DEFINITION_H_
 
 #define BUTTON_VOLUP_ID           0
 #define BUTTON_VOLDOWN_ID         1
@@ -59,27 +35,27 @@ extern audio_hal_func_t AUDIO_CODEC_RASPIAUDIO_DEFAULT_HANDLE;
 
 #define INPUT_KEY_NUM     4
 
-#define INPUT_KEY_DEFAULT_INFO() {                      \
-    {                                                   \
-        .type = PERIPH_ID_ADC_BTN,                      \
-        .user_id = INPUT_KEY_USER_ID_VOLUP,             \
-        .act_id = BUTTON_VOLUP_ID,                      \
-    },                                                  \
-    {                                                   \
-        .type = PERIPH_ID_ADC_BTN,                      \
-        .user_id = INPUT_KEY_USER_ID_VOLDOWN,           \
-        .act_id = BUTTON_VOLDOWN_ID,                    \
-    },                                                  \
-    {                                                   \
-        .type = PERIPH_ID_ADC_BTN,                      \
-        .user_id = INPUT_KEY_USER_ID_MUTE,              \
-        .act_id = BUTTON_MUTE_ID,                       \
-    },                                                  \
-    {                                                   \
-        .type = PERIPH_ID_ADC_BTN,                      \
-        .user_id = INPUT_KEY_USER_ID_SET,               \
-        .act_id = BUTTON_SET_ID,                        \
-    },                                                  \
-}
+#define INPUT_KEY_DEFAULT_INFO() {}
+    // {                                                  
+    //     .type = PERIPH_ID_ADC_BTN,                     
+    //     .user_id = INPUT_KEY_USER_ID_VOLUP,            
+    //     .act_id = BUTTON_VOLUP_ID,                     
+    // },                                                 
+    // {                                                  
+    //     .type = PERIPH_ID_ADC_BTN,                     
+    //     .user_id = INPUT_KEY_USER_ID_VOLDOWN,          
+    //     .act_id = BUTTON_VOLDOWN_ID,                   
+    // },                                                 
+    // {                                                  
+    //     .type = PERIPH_ID_ADC_BTN,                     
+    //     .user_id = INPUT_KEY_USER_ID_MUTE,             
+    //     .act_id = BUTTON_MUTE_ID,                      
+    // },                                                 
+    // {                                                  
+    //     .type = PERIPH_ID_ADC_BTN,                     
+    //     .user_id = INPUT_KEY_USER_ID_SET,              
+    //     .act_id = BUTTON_SET_ID,                       
+    // },                                                 
+   // }
 
 #endif

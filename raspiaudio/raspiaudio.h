@@ -6,17 +6,19 @@
 #include "board.h"
 
 
-//#define AUXD         GPIO_NUM_27     // AUX In detect 27
-#define GAIN         GPIO_NUM_23     //
+//#define AUXD         GPIO_NUM_27 
+#define GAIN         GPIO_NUM_23   
 //#define PW           GPIO_NUM_21 
-//#define SDD          GPIO_NUM_34     // Sd detect
+//#define SDD          GPIO_NUM_34 
 
 #define MU           GPIO_NUM_12      // short => mute/unmute  long => stop (deep sleep)
 //#define VM           GPIO_NUM_32     // Vol-
 //#define VP           GPIO_NUM_19     // Vol+ 
 
-#define I2S_SR_CTRL (i2s_port_t)0
+#define I2S_SR_CTRL  (i2s_port_t)0
 #define I2S1LCK_CTRL (i2s_port_t)0
+
+
 
 typedef enum{
 	SIMPLE_RATE_8000	= 0x0000,
@@ -39,8 +41,8 @@ typedef enum {
     BIT_LENGTH_24_BITS = 0x03,
 } ac_bits_length_t;
 
-esp_err_t ES8388_Write_Reg(uint8_t reg, uint16_t val);
-uint16_t ES8388_Read_Reg(uint8_t reg);
+esp_err_t raspiaudio_Write_Reg(uint8_t reg, uint16_t val);
+uint16_t raspiaudio_Read_Reg(uint8_t reg);
 
 esp_err_t raspiaudio_init(audio_hal_codec_config_t *codec_cfg);
 esp_err_t raspiaudio_deinit(void);
